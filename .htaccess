@@ -1,0 +1,3 @@
+# Menghilangkan akses ke semua file sehingga halaman menjadi kosong/error
+# Order Deny,Allow
+# Deny from all

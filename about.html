@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>PT Mitra Pratama Engineering</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <link href="img/favicon.ico" rel="icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Ubuntu:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <style>
+        .whatsapp-btn:hover {
+            background-color: #25D366;
+            border-color: #25D366;
+            color: white;
+        }
+
+        /* == [START] CSS RESPONSIVE TAMBAHAN == */
+        @media (max-width: 991.98px) {
+            /* Mengatur ulang padding atas pada hero section untuk tablet dan mobile */
+            .hero-header {
+                padding-top: 3rem !important;
+            }
+            .hero-header .row {
+                padding-top: 1rem !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Menyesuaikan ukuran font judul utama agar tidak terlalu besar di mobile */
+            h1, .h1 {
+                font-size: 2.25rem;
+            }
+
+            /* Memastikan teks pada judul di hero section dan layanan bisa wrap */
+            .hero-header h1, .service-title h1 {
+                white-space: normal !important;
+            }
+
+            /* Menyesuaikan gambar di hero section agar tidak terlalu besar */
+            .hero-header .img-fluid {
+                max-width: 80%;
+                height: auto;
+                margin-top: 2rem;
+            }
+
+            /* Membuat tim dan klien teksnya di tengah pada layar kecil */
+            .team-text-section, .client-text-section {
+                text-align: center;
+            }
+            .team-text-section .btn, .client-text-section .btn {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .footer .text-md-start {
+                 text-align: center !important;
+            }
+        }
+
+        @media (max-width: 576px) {
+            /* Menyusun tombol di hero section secara vertikal di layar sangat kecil */
+            .hero-buttons .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .hero-buttons .btn:last-child {
+                margin-bottom: 0;
+            }
+            
+            /* Mengurangi ukuran font pada testimoni */
+            .testimonial-item p.fs-4 {
+                font-size: 1.1rem !important;
+            }
+            
+            /* Menengahkan semua teks di footer pada mobile */
+            .footer .wow {
+                text-align: center;
+            }
+            .footer .d-flex {
+                justify-content: center;
+            }
+        }
+		
+		.hero-image-offset-wrapper {
+			position: relative;
+			display: inline-block;
+			/* PENYESUAIAN UKURAN: Membuat lebar wrapper 85% dari kolomnya */
+			width:85%;
+			/* PENYESUAIAN UKURAN: Batas lebar maksimal agar tidak terlalu besar di layar lebar */
+			max-width: 400px; 
+		}
+
+		.hero-image-offset-wrapper::before {
+			content: '';
+			position: absolute;
+			/* Sedikit penyesuaian pada pergeseran bingkai */
+			top: -15px;
+			left: 15px;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(255, 255, 255, 0.2); /* Warna bingkai */
+			border-radius: 10px;
+			z-index: 0;
+		}
+
+		.hero-image-offset-wrapper img {
+			position: relative;
+			z-index: 1;
+			border-radius: 10px;
+			box-shadow: 0px 10px 25px rgba(0, 19, 87, 0.3);
+		}
+		
+		@media (max-width: 768px) {
+			.hero-image-offset-wrapper {
+				width: 70%;
+				max-width: 300px;
+			}
+			.hero-image-offset-wrapper::before {
+				top: 10px;
+				right: 10px;
+			}
+		}
+
+		@media (max-width: 576px) {
+			.hero-image-offset-wrapper {
+				width: 70%;
+			}
+		}
+		
+		.feature-image-offset-wrapper {
+			position: relative;
+			display: inline-block;
+			width: 85%; /* Sesuaikan lebar sesuai keinginan */
+			max-width: 400px; /* Batas lebar maksimal */
+		}
+
+		.feature-image-offset-wrapper::before {
+			content: '';
+			position: absolute;
+			top: 15px; /* Sesuaikan jarak offset atas */
+			right: 15px; /* Sesuaikan jarak offset kanan */
+			width: 100%;
+			height: 100%;
+			background-color: rgba(256, 256, 256, 0.15); /* Warna bingkai (lebih terang agar terlihat di latar biru) */
+			border-radius: 10px; /* Sesuaikan radius sudut */
+			z-index: 0;
+		}
+
+		.feature-image-offset-wrapper img {
+			position: relative;
+			z-index: 1;
+			border-radius: 10px;
+			box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2); /* Efek bayangan lembut */
+		}
+
+		@media (max-width: 768px) {
+			.feature-image-offset-wrapper {
+				width: 70%;
+				max-width: 300px;
+			}
+			.feature-image-offset-wrapper::before {
+				top: 10px;
+				right: 10px;
+			}
+		}
+
+		@media (max-width: 576px) {
+			.feature-image-offset-wrapper {
+				width: 80%;
+			}
+		}
+		
+		/* Styling untuk gambar di seksi "Tentang Kami" */
+		.about-img-wrapper {
+			position: relative;
+			border-radius: 15px;
+			overflow: hidden;
+			box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+		}
+
+		/* Styling untuk tabel data legal */
+		.legal-data-wrapper {
+			background-color: #f8f9fa; /* Warna latar belakang lembut */
+			padding: 20px;
+			border-radius: 10px;
+			border: 1px solid #eee;
+		}
+
+		.legal-data-table td {
+			padding-top: 5px;
+			padding-bottom: 5px;
+			vertical-align: top;
+		}
+
+		.legal-data-table .label {
+			font-weight: 600; /* Membuat label menjadi tebal */
+			width: 160px;     /* Memberi lebar tetap pada kolom label */
+		}
+		
+		/* Styling untuk gambar di seksi "Tentang Kami" */
+		.about-img-wrapper {
+			position: relative;
+			border-radius: 15px;
+			overflow: hidden;
+			box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+		}
+
+		/* Styling untuk tabel data legal */
+		.legal-data-wrapper {
+			background-color: #f8f9fa; /* Warna latar belakang lembut */
+			padding: 20px;
+			border-radius: 10px;
+			border: 1px solid #eee;
+		}
+
+		.legal-data-table td {
+			padding-top: 5px;
+			padding-bottom: 5px;
+			vertical-align: top;
+		}
+
+		.legal-data-table .label {
+			font-weight: 600; /* Membuat label menjadi tebal */
+			width: 180px;     /* Sedikit penyesuaian lebar label */
+		}
+
+		.legal-data-table ul {
+			padding-left: 1em; /* Memberikan indent pada list */
+			margin-bottom: 0; /* Menghilangkan margin bawah default list */
+		}
+
+		.legal-data-table .placeholder {
+			font-style: italic; /* Memberikan indikasi placeholder */
+			color: #777;
+		}
+		
+		.legal-data-table ul li {
+			white-space: nowrap;      /* Mencegah teks turun ke baris baru */
+			overflow: hidden;         /* Menyembunyikan teks yang melebihi lebar kontainer */
+			text-overflow: ellipsis;  /* Menampilkan "..." pada teks yang terpotong */
+		}
+		
+		/* == [END] CSS RESPONSIVE TAMBAHAN == */
+    </style>
+</head>
+
+<body>
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <div class="container-fluid sticky-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark p-0">
+                <a href="index.html" class="navbar-brand">
+                    <img src="img/logo.png" alt="PT Mitra Pratama Engineering" style="height: 55px; margin-top: 2px;">
+                </a>
+                <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto">
+                        <a href="index.html" class="nav-item nav-link active">Home</a>
+                        <a href="about.html" class="nav-item nav-link">Tentang Perusahaan</a>
+                        <a href="service.html" class="nav-item nav-link">Layanan</a>
+                        <a href="project.html" class="nav-item nav-link">Project</a>
+                        <a href="contact.html" class="nav-item nav-link">Kontak Kami</a>
+                    </div>
+                    <butaton type="button" class="btn text-white p-0 d-none d-lg-block" data-bs-toggle="modal"
+                        data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="container-fluid pt-5 bg-primary hero-header mb-5">
+		<div class="container pt-5">
+			<div class="row g-5 pt-5">
+				<div class="col-lg-6 align-self-center text-center text-lg-start mb-lg-5">
+					 <h1 class="display-8 text-white mb-4 animated slideInRight">PT Mitra Pratama Engineering</h1>
+					<p class="text-white mb-4 animated slideInRight">Kami dikenal andal dan tepat dalam menganalisis masalah, menjunjung kejujuran dan profesionalisme, serta menyediakan spare part elektrikal dan tata udara dengan harga kompetitif.</p>
+					<div class="hero-buttons">
+						<a href="https://wa.me/6281314695936" target="_blank" class="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight whatsapp-btn"><i class="fab fa-whatsapp me-2"></i> WhatsApp</a>
+						<a href="https://tokopedia.link/KQIy1ltrYTb" target="_blank" class="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight tokopedia-btn"><i class="fas fa-shopping-cart me-2"></i> Tokopedia</a>
+					</div>
+				</div>
+				<div class="col-lg-6 align-self-center text-center text-lg-end">
+					<div class="hero-image-offset-wrapper animated zoomIn">
+						<img class="img-fluid" src="img/hvac_.jpeg" alt="Layanan HVAC Profesional">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div class="modal fade" id="searchModal" tabindex="-1">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content" style="background: rgba(20, 24, 62, 0.7);">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn btn-square bg-white btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex align-items-center justify-content-center">
+                    <div class="input-group" style="max-width: 600px;">
+                        <input type="text" class="form-control bg-transparent border-light p-3"
+                            placeholder="Type search keyword">
+                        <button class="btn btn-light px-4"><i class="bi bi-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid py-5">
+		<div class="container">
+			<div class="row g-5 align-items-lg-center"> 
+				<div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+					<div class="about-img-wrapper">
+						<img class="img-fluid" src="img/hvac_0.jpeg">
+					</div>
+				</div>
+				<div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+					<div class="btn btn-sm border rounded-pill text-primary px-3 mb-3">Tentang Kami</div>
+					<h1 class="mb-4">Solusi HVAC Andal untuk Kenyamanan dan Efisiensi Bisnis Anda</h1>
+					<div class="legal-data-wrapper mt-4">
+						<p class="mb-4 fw-bold">Vision</p>
+						<p class="mb-4">Menjadi penyedia jasa pemeliharaan, perbaikan, dan instalasi untuk fasilitas HVAC&R, tata udara, dan elektrikal terbaik, serta menjadi mitra terpercaya bagi semua pelanggan kami. Kami berkomitmen untuk memberikan solusi yang handal dan efisien, dengan fokus pada kualitas dan inovasi dalam setiap layanan yang kami tawarkan. Dengan pengalaman dan keahlian kami, kami bertujuan untuk membangun hubungan jangka panjang yang didasarkan pada kepercayaan dan kepuasan pelanggan, memastikan bahwa setiap proyek yang kami tangani mencapai hasil yang optimal dan melebihi harapan pelanggan.</p>
+					</div>
+					<div class="legal-data-wrapper mt-4">
+						<p class="mb-4 fw-bold">Mission</p>
+						<p class="mb-4">Memberikan pelayanan yang memuaskan, tepat waktu, mudah diakses, dan ramah, dengan tujuan menarik minat masyarakat luas serta perusahaan lain untuk bekerja sama. Kami berfokus pada kualitas pelayanan yang unggul untuk membangun hubungan yang kuat dan berkelanjutan dengan pelanggan kami. Berkontribusi dalam menciptakan peluang kerja dan membangun budaya kerja yang berkualitas dan profesional. Kami mendukung pengembangan keterampilan dan potensi karyawan, serta berupaya memberikan dampak positif bagi masyarakat dan industri, dengan mengedepankan standar kerja yang tinggi dan beretika.</p>
+					</div>
+					<div class="legal-data-wrapper mt-4">
+						<h5 class="mb-3">Data Legal Perusahaan</h5>
+						<div class="table-responsive">
+							<table class="table table-borderless table-sm legal-data-table text-nowrap">
+								<tbody>
+									<tr>
+										<td class="label">Alamat</td>
+										<td>:</td>
+										<td>Perum Kotabaru Residence 3, Blok G1 No 24, Pucung, Kota Baru - Karawang</td>
+									</tr>
+									<tr>
+										<td class="label">SK KEMENKUMHAM</td>
+										<td>:</td>
+										<td><span class="placeholder">AHU-000765.AH.01.31.Tahun 2025</span></td>
+									</tr>
+									<tr>
+										<td class="label">NIB</td>
+										<td>:</td>
+										<td><span class="placeholder">0412240115388</span></td>
+									</tr>
+									<tr>
+										<td class="label">SERTIFIKAT STANDART</td>
+										<td>:</td>
+										<td><span class="placeholder">04122401153880001</span></td>
+									</tr>
+									<tr>
+										<td class="label">SKT</td>
+										<td>:</td>
+										<td><span class="placeholder">S-12805/SKT-WP-CT/KPP.2204/2025</span></td>
+									</tr>
+									<tr>
+										<td class="label">SPPKP</td>
+										<td>:</td>
+										<td><span class="placeholder">S-00120/SPPKP-CT/KPP.2204/2025</span></td>
+									</tr>
+									<tr>
+										<td class="label">NPWP</td>
+										<td>:</td>
+										<td><span class="placeholder">0288 2902 5740 8000</span></td>
+									</tr>
+									<tr>
+										<td class="label">SKDP</td>
+										<td>:</td>
+										<td><span class="placeholder">500/29/XII/2024</span></td>
+									</tr>
+									<tr>
+										<td class="label">KLASIFIKASI USAHA</td>
+										<td>:</td>
+										<td>
+											<ul class="list-unstyled mb-0">
+												<li><span class="placeholder">- [43224] INSTALASI PENDINGIN DAN VENTILASI UDARA </span></li>
+												<li><span class="placeholder">- [28193] INDUSTRI MESIN PENDINGIN </span></li>
+												<li><span class="placeholder">- [33121] REPARASI MESIN UNTUK KEPERLUAN UMUM </span></li>
+												<li><span class="placeholder">- [33141] REPARASI MOTOR LISTRIK,GENERATOR,DAN TRANSFORMATOR</span></li>
+												<li><span class="placeholder">- [46521] PERDAGANGAN BESAR SUKU CADANG ELEKTRONIK </span></li>
+												<li><span class="placeholder">- [95210] REPARASI ALAT ALAT ELEKTRONIK</span></li>
+											</ul>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+					<div class="row g-3 mt-4">
+						<div class="col-sm-6">
+							<h6 class="mb-3"><i class="fa fa-check text-primary me-2"></i>Terpercaya</h6>
+							<h6 class="mb-0"><i class="fa fa-check text-primary me-2"></i>Professional</h6>
+						</div>
+						<div class="col-sm-6">
+							<h6 class="mb-3"><i class="fa fa-check text-primary me-2"></i>Layanan 24/7</h6>
+							<h6 class="mb-0"><i class="fa fa-check text-primary me-2"></i>Harga Kompetitif</h6>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div class="container-fluid bg-primary feature pt-5">
+        <div class="container pt-5">
+            <div class="row g-5">
+                <div class="col-lg-6 align-self-center mb-md-5 pb-md-5 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="btn btn-sm border rounded-pill text-white px-3 mb-3">Alasan Memilih Kami</div>
+                    <h1 class="text-white mb-4">Solusi HVAC Terpercaya untuk Kebutuhan Industri Modern</h1>
+                    <p class="text-light mb-4">Dengan pengalaman lebih dari 10 tahun,Banyak klien industri dan komersial terus mempercayakan layanan HVAC dan elektrikal kepada kami karena kualitas kerja yang konsisten dan layanan yang profesional</p>
+                    <div class="d-flex align-items-center text-white mb-3">
+                        <div class="btn-sm-square bg-white text-primary rounded-circle me-3">
+                            <i class="fa fa-check"></i>
+                        </div>
+                        <span>Tepat Waktu dan Responsif</span>
+                    </div>
+                    <div class="d-flex align-items-center text-white mb-3">
+                        <div class="btn-sm-square bg-white text-primary rounded-circle me-3">
+                            <i class="fa fa-check"></i>
+                        </div>
+                        <span>Kualitas Pekerjaan Terjamin</span>
+                    </div>
+                    <div class="d-flex align-items-center text-white mb-3">
+                        <div class="btn-sm-square bg-white text-primary rounded-circle me-3">
+                            <i class="fa fa-check"></i>
+                        </div>
+                        <span>Pelayanan Profesional</span>
+                    </div>
+					<div class="d-flex align-items-center text-white mb-3">
+                        <div class="btn-sm-square bg-white text-primary rounded-circle me-3">
+                            <i class="fa fa-check"></i>
+                        </div>
+                        <span>Laporan Teknis & Dokumentasi</span>
+                    </div>
+                </div>
+                <div class="col-lg-6 align-self-center text-center text-md-end wow fadeIn" data-wow-delay="0.5s">
+					<div class="feature-image-offset-wrapper">
+						<img class="img-fluid" src="img/good_quality.jpeg" alt="Kualitas Terjamin">
+					</div>
+				</div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-light py-5">
+        <div class="container py-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-5 wow fadeIn team-text-section" data-wow-delay="0.1s">
+                    <div class="btn btn-sm border rounded-pill text-primary px-3 mb-3">Tim Kami</div>
+                    <h1 class="mb-4">Kenali Tim Berpengalaman Kami</h1>
+                    <p class="mb-4">Kami terdiri dari para profesional dengan keahlian tinggi di bidang HVAC, instalasi mekanikal, dan sistem pendingin industri. Dengan pengalaman bertahun-tahun, tim kami siap memberikan solusi terbaik yang efisien, andal, dan sesuai standar teknik terbaru untuk setiap proyek Anda.</p>
+                </div>
+                <div class="col-lg-7">
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-md-6">
+                            <div class="row g-4">
+                                <div class="col-12 wow fadeIn" data-wow-delay="0.1s">
+                                    <div class="team-item bg-white text-center rounded p-4 pt-0">
+                                        <img class="img-fluid rounded-circle p-4" src="img/Syahrial_Prasetya.png" alt="Direktur PT Mitra Pratama Engineering">
+                                        <h5 class="mb-0">Syahrial Prasetya</h5>
+                                        <small>Direktur PT Mitra Pratama Engineering</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-white-50 footer pt-5">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.1s">
+                    <a href="index.html" class="navbar-brand">
+                        <img src="img/logo.png" alt="PT Mitra Pratama Engineering" style="height: 45px; margin-bottom: 10px;">
+                    </a>
+                    <p class="mb-0">PT Mitra Pratama Engineering – Spesialis HVAC, tata udara, instalasi elektrikal, serta pembuatan & perawatan chiller industri dan komersial.</p>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.3s">
+                     <h5 class="text-white mb-4">Alamat</h5>
+                      <p><i class="fa fa-map-marker-alt me-3"></i>Perum Kotabaru Residence 3, Blok G1 No 24, Pucung, Kota Baru - Karawang</p>
+                </div>
+                <div class="col-lg-4 col-md-12 wow fadeIn" data-wow-delay="0.5s">
+                    <h5 class="text-white mb-4">Hubungi Kami</h5>
+                    <p><i class="fa fa-phone-alt me-3"></i>0813-1469-5936</p>
+                    <p><i class="fa fa-envelope me-3"></i>admin@mpehvac.com</p>
+					<p><i class="fa fa-envelope me-3"></i>syahrial@mpehvac.com</p>
+					<p><i class="fa fa-envelope me-3"></i>anisanurul@mpehvac.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/share/1C9QV5Fgkm/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/mitrapratamaengineering?utm_source=qr&igsh=Y29jNmRkYjJyZ2Zj" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container wow fadeIn" data-wow-delay="0.1s">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="https://mpehvac.com/">PT Mitra Pratama Engineering</a>, All Right Reserved.
+                    </div>
+                     <div class="col-md-6 text-center text-md-end">
+                       Designed By <a class="border-bottom" href="#">SCT</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top pt-2"><i class="bi bi-arrow-up"></i></a>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <script src="js/main.js"></script>
+
+</html>

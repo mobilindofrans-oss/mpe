@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>PT Mitra Pratama Engineering</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <link href="img/favicon.ico" rel="icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Ubuntu:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <style>
+        .whatsapp-btn:hover {
+            background-color: #25D366;
+            border-color: #25D366;
+            color: white;
+        }
+
+        /* == [START] CSS RESPONSIVE TAMBAHAN == */
+        @media (max-width: 991.98px) {
+            /* Mengatur ulang padding atas pada hero section untuk tablet dan mobile */
+            .hero-header {
+                padding-top: 3rem !important;
+            }
+            .hero-header .row {
+                padding-top: 1rem !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Menyesuaikan ukuran font judul utama agar tidak terlalu besar di mobile */
+            h1, .h1 {
+                font-size: 2.25rem;
+            }
+
+            /* Memastikan teks pada judul di hero section dan layanan bisa wrap */
+            .hero-header h1, .service-title h1 {
+                white-space: normal !important;
+            }
+
+            /* Menyesuaikan gambar di hero section agar tidak terlalu besar */
+            .hero-header .img-fluid {
+                max-width: 80%;
+                height: auto;
+                margin-top: 2rem;
+            }
+
+            /* Membuat tim dan klien teksnya di tengah pada layar kecil */
+            .team-text-section, .client-text-section {
+                text-align: center;
+            }
+            .team-text-section .btn, .client-text-section .btn {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .footer .text-md-start {
+                 text-align: center !important;
+            }
+        }
+
+        @media (max-width: 576px) {
+            /* Menyusun tombol di hero section secara vertikal di layar sangat kecil */
+            .hero-buttons .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .hero-buttons .btn:last-child {
+                margin-bottom: 0;
+            }
+            
+            /* Mengurangi ukuran font pada testimoni */
+            .testimonial-item p.fs-4 {
+                font-size: 1.1rem !important;
+            }
+            
+            /* Menengahkan semua teks di footer pada mobile */
+            .footer .wow {
+                text-align: center;
+            }
+            .footer .d-flex {
+                justify-content: center;
+            }
+        }
+		
+		.hero-image-offset-wrapper {
+			position: relative;
+			display: inline-block;
+			/* PENYESUAIAN UKURAN: Membuat lebar wrapper 85% dari kolomnya */
+			width:85%;
+			/* PENYESUAIAN UKURAN: Batas lebar maksimal agar tidak terlalu besar di layar lebar */
+			max-width: 400px; 
+		}
+
+		.hero-image-offset-wrapper::before {
+			content: '';
+			position: absolute;
+			/* Sedikit penyesuaian pada pergeseran bingkai */
+			top: -15px;
+			left: 15px;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(255, 255, 255, 0.2); /* Warna bingkai */
+			border-radius: 10px;
+			z-index: 0;
+		}
+
+		.hero-image-offset-wrapper img {
+			position: relative;
+			z-index: 1;
+			border-radius: 10px;
+			box-shadow: 0px 10px 25px rgba(0, 19, 87, 0.3);
+		}
+		
+		@media (max-width: 768px) {
+			.hero-image-offset-wrapper {
+				width: 70%;
+				max-width: 300px;
+			}
+			.hero-image-offset-wrapper::before {
+				top: 10px;
+				right: 10px;
+			}
+		}
+
+		@media (max-width: 576px) {
+			.hero-image-offset-wrapper {
+				width: 70%;
+			}
+		}
+		
+		.feature-image-offset-wrapper {
+			position: relative;
+			display: inline-block;
+			width: 85%; /* Sesuaikan lebar sesuai keinginan */
+			max-width: 400px; /* Batas lebar maksimal */
+		}
+
+		.feature-image-offset-wrapper::before {
+			content: '';
+			position: absolute;
+			top: 15px; /* Sesuaikan jarak offset atas */
+			right: 15px; /* Sesuaikan jarak offset kanan */
+			width: 100%;
+			height: 100%;
+			background-color: rgba(256, 256, 256, 0.15); /* Warna bingkai (lebih terang agar terlihat di latar biru) */
+			border-radius: 10px; /* Sesuaikan radius sudut */
+			z-index: 0;
+		}
+
+		.feature-image-offset-wrapper img {
+			position: relative;
+			z-index: 1;
+			border-radius: 10px;
+			box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2); /* Efek bayangan lembut */
+		}
+
+		@media (max-width: 768px) {
+			.feature-image-offset-wrapper {
+				width: 70%;
+				max-width: 300px;
+			}
+			.feature-image-offset-wrapper::before {
+				top: 10px;
+				right: 10px;
+			}
+		}
+
+		@media (max-width: 576px) {
+			.feature-image-offset-wrapper {
+				width: 80%;
+			}
+		}
+		
+		/* Styling untuk gambar di seksi "Tentang Kami" */
+		.about-img-wrapper {
+			position: relative;
+			border-radius: 15px;
+			overflow: hidden;
+			box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+		}
+
+		/* Styling untuk tabel data legal */
+		.legal-data-wrapper {
+			background-color: #f8f9fa; /* Warna latar belakang lembut */
+			padding: 20px;
+			border-radius: 10px;
+			border: 1px solid #eee;
+		}
+
+		.legal-data-table td {
+			padding-top: 5px;
+			padding-bottom: 5px;
+			vertical-align: top;
+		}
+
+		.legal-data-table .label {
+			font-weight: 600; /* Membuat label menjadi tebal */
+			width: 160px;     /* Memberi lebar tetap pada kolom label */
+		}
+		
+		/* Styling untuk gambar di seksi "Tentang Kami" */
+		.about-img-wrapper {
+			position: relative;
+			border-radius: 15px;
+			overflow: hidden;
+			box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+		}
+
+		/* Styling untuk tabel data legal */
+		.legal-data-wrapper {
+			background-color: #f8f9fa; /* Warna latar belakang lembut */
+			padding: 20px;
+			border-radius: 10px;
+			border: 1px solid #eee;
+		}
+
+		.legal-data-table td {
+			padding-top: 5px;
+			padding-bottom: 5px;
+			vertical-align: top;
+		}
+
+		.legal-data-table .label {
+			font-weight: 600; /* Membuat label menjadi tebal */
+			width: 180px;     /* Sedikit penyesuaian lebar label */
+		}
+
+		.legal-data-table ul {
+			padding-left: 1em; /* Memberikan indent pada list */
+			margin-bottom: 0; /* Menghilangkan margin bawah default list */
+		}
+
+		.legal-data-table .placeholder {
+			font-style: italic; /* Memberikan indikasi placeholder */
+			color: #777;
+		}
+		
+		.legal-data-table ul li {
+			white-space: nowrap;      /* Mencegah teks turun ke baris baru */
+			overflow: hidden;         /* Menyembunyikan teks yang melebihi lebar kontainer */
+			text-overflow: ellipsis;  /* Menampilkan "..." pada teks yang terpotong */
+		}
+		
+		/* CSS untuk Galeri Proyek agar Ukuran Seragam */
+		.case-item {
+			/* Memaksa wadah gambar menjadi persegi (1:1 aspect ratio) */
+			aspect-ratio: 1 / 1; 
+			margin-bottom: 0 !important; /* Menghilangkan margin bawah bawaan */
+		}
+
+		.case-item img {
+			/* Memastikan gambar mengisi seluruh area wadah tanpa gepeng */
+			width: 100%;
+			height: 100%;
+			object-fit: cover; 
+			transition: transform 0.4s ease; /* Transisi untuk efek zoom */
+		}
+
+		/* Efek saat kursor mouse di atas gambar */
+		.case-item:hover .case-overlay {
+			opacity: 1; /* Tampilkan overlay */
+		}
+
+		.case-item:hover img {
+			transform: scale(1.1); /* Efek zoom-in pada gambar */
+		}
+
+		/* Styling untuk overlay (teks di atas gambar saat hover) */
+		.case-overlay {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(20, 24, 62, 0.8);
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			padding: 20px;
+			opacity: 0;
+			transition: opacity 0.4s ease;
+		}
+		
+		/* == [END] CSS RESPONSIVE TAMBAHAN == */
+    </style>
+</head>
+
+<body>
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <div class="container-fluid sticky-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark p-0">
+                <a href="index.html" class="navbar-brand">
+                    <img src="img/logo.png" alt="PT Mitra Pratama Engineering" style="height: 55px; margin-top: 2px;">
+                </a>
+                <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto">
+                        <a href="index.html" class="nav-item nav-link">Home</a>
+                        <a href="about.html" class="nav-item nav-link">Tentang Perusahaan</a>
+                        <a href="service.html" class="nav-item nav-link">Layanan</a>
+                        <a href="project.html" class="nav-item nav-link active">Project</a>
+                        <a href="contact.html" class="nav-item nav-link">Kontak Kami</a>
+                    </div>
+                    <butaton type="button" class="btn text-white p-0 d-none d-lg-block" data-bs-toggle="modal"
+                        data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="container-fluid pt-5 bg-primary hero-header mb-5">
+		<div class="container pt-5">
+			<div class="row g-5 pt-5">
+				<div class="col-lg-6 align-self-center text-center text-lg-start mb-lg-5">
+					 <h1 class="display-8 text-white mb-4 animated slideInRight">PT Mitra Pratama Engineering</h1>
+					<p class="text-white mb-4 animated slideInRight">Kami dikenal andal dan tepat dalam menganalisis masalah, menjunjung kejujuran dan profesionalisme, serta menyediakan spare part elektrikal dan tata udara dengan harga kompetitif.</p>
+					<div class="hero-buttons">
+						<a href="https://wa.me/6281314695936" target="_blank" class="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight whatsapp-btn"><i class="fab fa-whatsapp me-2"></i> WhatsApp</a>
+						<a href="https://tokopedia.link/KQIy1ltrYTb" target="_blank" class="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight tokopedia-btn"><i class="fas fa-shopping-cart me-2"></i> Tokopedia</a>
+					</div>
+				</div>
+				<div class="col-lg-6 align-self-center text-center text-lg-end">
+					<div class="hero-image-offset-wrapper animated zoomIn">
+						<img class="img-fluid" src="img/hvac_.jpeg" alt="Layanan HVAC Profesional">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div class="modal fade" id="searchModal" tabindex="-1">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content" style="background: rgba(20, 24, 62, 0.7);">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn btn-square bg-white btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex align-items-center justify-content-center">
+                    <div class="input-group" style="max-width: 600px;">
+                        <input type="text" class="form-control bg-transparent border-light p-3"
+                            placeholder="Type search keyword">
+                        <button class="btn btn-light px-4"><i class="bi bi-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-light py-5">
+		<div class="container py-5">
+			<div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 500px;">
+				<div class="btn btn-sm border rounded-pill text-primary px-3 mb-3">Project</div>
+				<h1 class="mb-4">Galeri Project Kami</h1>
+			</div>
+			<div class="row g-4">
+				<div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.2s">
+					<div class="case-item position-relative overflow-hidden rounded">
+						<img class="img-fluid" src="img/hvac_1.png" alt="Proyek HVAC 1">
+						<a class="case-overlay text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="img/hvac_1.png">
+							<span class="btn btn-square btn-primary"><i class="fa fa-plus"></i></span>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.4s">
+					<div class="case-item position-relative overflow-hidden rounded">
+						<img class="img-fluid" src="img/hvac_2.png" alt="Proyek HVAC 2">
+						 <a class="case-overlay text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="img/hvac_2.png">
+							<span class="btn btn-square btn-primary"><i class="fa fa-plus"></i></span>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.6s">
+					<div class="case-item position-relative overflow-hidden rounded">
+						<img class="img-fluid" src="img/hvac_3.png" alt="Proyek HVAC 3">
+						 <a class="case-overlay text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="img/hvac_3.png">
+							<span class="btn btn-square btn-primary"><i class="fa fa-plus"></i></span>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.8s">
+					<div class="case-item position-relative overflow-hidden rounded">
+						<img class="img-fluid" src="img/hvac_4.png" alt="Proyek HVAC 4">
+						 <a class="case-overlay text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="img/hvac_4.png">
+							<span class="btn btn-square btn-primary"><i class="fa fa-plus"></i></span>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="1.0s">
+					<div class="case-item position-relative overflow-hidden rounded">
+						<img class="img-fluid" src="img/hvac_5.png" alt="Proyek HVAC 5">
+						 <a class="case-overlay text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="img/hvac_5.png">
+							<span class="btn btn-square btn-primary"><i class="fa fa-plus"></i></span>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="1.2s">
+					<div class="case-item position-relative overflow-hidden rounded">
+						<img class="img-fluid" src="img/hvac_6.png" alt="Proyek HVAC 6">
+						<a class="case-overlay text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="img/hvac_6.png">
+							<span class="btn btn-square btn-primary"><i class="fa fa-plus"></i></span>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="1.4s">
+					<div class="case-item position-relative overflow-hidden rounded">
+						<img class="img-fluid" src="img/hvac_7.png" alt="Proyek HVAC 7">
+						<a class="case-overlay text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="img/hvac_7.png">
+							<span class="btn btn-square btn-primary"><i class="fa fa-plus"></i></span>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="1.6s">
+					<div class="case-item position-relative overflow-hidden rounded">
+						<img class="img-fluid" src="img/hvac_8.jpeg" alt="Proyek HVAC 8">
+						<a class="case-overlay text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="img/hvac_8.jpeg">
+							<span class="btn btn-square btn-primary"><i class="fa fa-plus"></i></span>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="1.8s">
+					<div class="case-item position-relative overflow-hidden rounded">
+						<img class="img-fluid" src="img/hvac_9.jpeg" alt="Proyek HVAC 8">
+						<a class="case-overlay text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="img/hvac_9.jpeg">
+							<span class="btn btn-square btn-primary"><i class="fa fa-plus"></i></span>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="2.0s">
+					<div class="case-item position-relative overflow-hidden rounded">
+						<img class="img-fluid" src="img/hvac_10.jpeg" alt="Proyek HVAC 9">
+						<a class="case-overlay text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="img/hvac_10.jpeg">
+							<span class="btn btn-square btn-primary"><i class="fa fa-plus"></i></span>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="2.2s">
+					<div class="case-item position-relative overflow-hidden rounded">
+						<img class="img-fluid" src="img/hvac_11.jpeg" alt="Proyek HVAC 10">
+						<a class="case-overlay text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="img/hvac_11.jpeg">
+							<span class="btn btn-square btn-primary"><i class="fa fa-plus"></i></span>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="2.4s">
+					<div class="case-item position-relative overflow-hidden rounded">
+						<img class="img-fluid" src="img/hvac_12.jpeg" alt="Proyek HVAC 11">
+						<a class="case-overlay text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="img/hvac_12.jpeg">
+							<span class="btn btn-square btn-primary"><i class="fa fa-plus"></i></span>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="2.6s">
+					<div class="case-item position-relative overflow-hidden rounded">
+						<img class="img-fluid" src="img/hvac_13.jpeg" alt="Proyek HVAC 13">
+						<a class="case-overlay text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="img/hvac_13.jpeg">
+							<span class="btn btn-square btn-primary"><i class="fa fa-plus"></i></span>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="2.8s">
+					<div class="case-item position-relative overflow-hidden rounded">
+						<img class="img-fluid" src="img/hvac_14.jpeg" alt="Proyek HVAC 14">
+						<a class="case-overlay text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="img/hvac_14.jpeg">
+							<span class="btn btn-square btn-primary"><i class="fa fa-plus"></i></span>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="3.0s">
+					<div class="case-item position-relative overflow-hidden rounded">
+						<img class="img-fluid" src="img/hvac_15.jpeg" alt="Proyek HVAC 15">
+						<a class="case-overlay text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="img/hvac_15.jpeg">
+							<span class="btn btn-square btn-primary"><i class="fa fa-plus"></i></span>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="3.2s">
+					<div class="case-item position-relative overflow-hidden rounded">
+						<img class="img-fluid" src="img/hvac_16.jpeg" alt="Proyek HVAC 16">
+						<a class="case-overlay text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="img/hvac_16.jpeg">
+							<span class="btn btn-square btn-primary"><i class="fa fa-plus"></i></span>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="3.4s">
+					<div class="case-item position-relative overflow-hidden rounded">
+						<img class="img-fluid" src="img/hvac_17.jpeg" alt="Proyek HVAC 17">
+						<a class="case-overlay text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="img/hvac_17.jpeg">
+							<span class="btn btn-square btn-primary"><i class="fa fa-plus"></i></span>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="3.6s">
+					<div class="case-item position-relative overflow-hidden rounded">
+						<img class="img-fluid" src="img/hvac_18.jpeg" alt="Proyek HVAC 18">
+						<a class="case-overlay text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="img/hvac_18.jpeg">
+							<span class="btn btn-square btn-primary"><i class="fa fa-plus"></i></span>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="3.8s">
+					<div class="case-item position-relative overflow-hidden rounded">
+						<img class="img-fluid" src="img/hvac_19.jpeg" alt="Proyek HVAC 19">
+						<a class="case-overlay text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="img/hvac_19.jpeg">
+							<span class="btn btn-square btn-primary"><i class="fa fa-plus"></i></span>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="4.0s">
+					<div class="case-item position-relative overflow-hidden rounded">
+						<img class="img-fluid" src="img/hvac_20.jpeg" alt="Proyek HVAC 20">
+						<a class="case-overlay text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="img/hvac_20.jpeg">
+							<span class="btn btn-square btn-primary"><i class="fa fa-plus"></i></span>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="4.2s">
+					<div class="case-item position-relative overflow-hidden rounded">
+						<img class="img-fluid" src="img/hvac_21.jpeg" alt="Proyek HVAC 21">
+						<a class="case-overlay text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="img/hvac_21.jpeg">
+							<span class="btn btn-square btn-primary"><i class="fa fa-plus"></i></span>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="4.4s">
+					<div class="case-item position-relative overflow-hidden rounded">
+						<img class="img-fluid" src="img/hvac_22.jpeg" alt="Proyek HVAC 22">
+						<a class="case-overlay text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="img/hvac_22.jpeg">
+							<span class="btn btn-square btn-primary"><i class="fa fa-plus"></i></span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 500px;">
+                <div class="btn btn-sm border rounded-pill text-primary px-3 mb-3">FAQ Terpopuler</div>
+                <h1 class="mb-4">FAQ (Pertanyaan Umum)</h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="accordion" id="accordionFAQ1">
+                        <div class="accordion-item wow fadeIn" data-wow-delay="0.1s">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    Apa saja layanan HVAC yang disediakan oleh PT Mitra Pratama Engineering?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                                data-bs-parent="#accordionFAQ1">
+                                <div class="accordion-body">
+                                    PT Mitra Pratama Engineering menyediakan layanan lengkap di bidang HVAC, termasuk desain sistem HVAC, instalasi AC sentral, ducting, maintenance berkala, perbaikan sistem pendingin, serta integrasi sistem kontrol dan monitoring berbasis IoT.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item wow fadeIn" data-wow-delay="0.2s">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Apakah PT Mitra Pratama Engineering melayani proyek HVAC untuk industri dan gedung komersial?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                data-bs-parent="#accordionFAQ1">
+                                <div class="accordion-body">
+                                    Ya, kami melayani berbagai jenis proyek HVAC untuk industri, pabrik, gedung perkantoran, rumah sakit, pusat perbelanjaan, hingga bangunan komersial lainnya dengan standar profesional dan teknis yang tinggi.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item wow fadeIn" data-wow-delay="0.3s">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Apa keunggulan PT Mitra Pratama Engineering dibandingkan penyedia HVAC lainnya?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                                data-bs-parent="#accordionFAQ1">
+                                <div class="accordion-body">
+                                    Kami mengutamakan kualitas kerja, efisiensi sistem, dan kepuasan pelanggan. Didukung oleh tim teknisi berpengalaman, produk berkualitas, serta kemampuan integrasi dengan sistem smart building dan monitoring digital.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item wow fadeIn" data-wow-delay="0.4s">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                                    Apakah PT Mitra Pratama Engineering menyediakan layanan maintenance HVAC?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                                data-bs-parent="#accordionFAQ1">
+                                <div class="accordion-body">
+                                    Tentu. Kami menyediakan paket pemeliharaan rutin HVAC termasuk pemeriksaan sistem, pembersihan, penggantian filter, pengecekan refrigerant, dan kalibrasi kontrol suhu secara berkala.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="accordion" id="accordionFAQ2">
+                        <div class="accordion-item wow fadeIn" data-wow-delay="0.5s">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    Apakah PT Mitra Pratama Engineering dapat mengerjakan proyek HVAC berskala besar?
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                                data-bs-parent="#accordionFAQ2">
+                                <div class="accordion-body">
+                                    Ya. Kami telah berpengalaman dalam menangani proyek HVAC berskala besar, baik untuk kawasan industri, gedung bertingkat, maupun fasilitas publik dengan kebutuhan sistem pendingin yang kompleks.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item wow fadeIn" data-wow-delay="0.6s">
+                            <h2 class="accordion-header" id="headingSix">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                    Bagaimana proses kerja sama dengan PT Mitra Pratama Engineering untuk proyek HVAC?
+                                </button>
+                            </h2>
+                            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+                                data-bs-parent="#accordionFAQ2">
+                                <div class="accordion-body">
+                                    Proses kerja sama dimulai dari konsultasi awal dan survei lokasi, dilanjutkan dengan desain teknis, penawaran harga, pelaksanaan proyek, hingga serah terima sistem dan layanan purna jual.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item wow fadeIn" data-wow-delay="0.7s">
+                            <h2 class="accordion-header" id="headingSeven">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                    Apakah PT Mitra Pratama Engineering menggunakan produk HVAC dari merek ternama?
+                                </button>
+                            </h2>
+                            <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven"
+                                data-bs-parent="#accordionFAQ2">
+                                <div class="accordion-body">
+                                    Ya, kami hanya menggunakan produk dan komponen HVAC dari merek terpercaya seperti Daikin, Mitsubishi, Panasonic, dan lainnya untuk memastikan kinerja optimal dan daya tahan sistem.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item wow fadeIn" data-wow-delay="0.8s">
+                            <h2 class="accordion-header" id="headingEight">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                    Apakah PT Mitra Pratama Engineering dapat menyesuaikan sistem HVAC dengan kebutuhan khusus klien?
+                                </button>
+                            </h2>
+                            <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight"
+                                data-bs-parent="#accordionFAQ2">
+                                <div class="accordion-body">
+                                    Tentu. Kami selalu merancang sistem HVAC sesuai kebutuhan spesifik klien, mulai dari efisiensi energi, kapasitas pendinginan, ruang terbatas, hingga integrasi dengan sistem otomasi bangunan.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-white-50 footer pt-5">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.1s">
+                    <a href="index.html" class="navbar-brand">
+                        <img src="img/logo.png" alt="PT Mitra Pratama Engineering" style="height: 45px; margin-bottom: 10px;">
+                    </a>
+                    <p class="mb-0">PT Mitra Pratama Engineering – Spesialis HVAC, tata udara, instalasi elektrikal, serta pembuatan & perawatan chiller industri dan komersial.</p>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.3s">
+                     <h5 class="text-white mb-4">Alamat</h5>
+                      <p><i class="fa fa-map-marker-alt me-3"></i>Perum Kotabaru Residence 3, Blok G1 No 24, Pucung, Kota Baru - Karawang</p>
+                </div>
+                <div class="col-lg-4 col-md-12 wow fadeIn" data-wow-delay="0.5s">
+                    <h5 class="text-white mb-4">Hubungi Kami</h5>
+                    <p><i class="fa fa-phone-alt me-3"></i>0813-1469-5936</p>
+                    <p><i class="fa fa-envelope me-3"></i>admin@mpehvac.com</p>
+					<p><i class="fa fa-envelope me-3"></i>syahrial@mpehvac.com</p>
+					<p><i class="fa fa-envelope me-3"></i>anisanurul@mpehvac.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/share/1C9QV5Fgkm/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/mitrapratamaengineering?utm_source=qr&igsh=Y29jNmRkYjJyZ2Zj" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container wow fadeIn" data-wow-delay="0.1s">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="https://mpehvac.com/">PT Mitra Pratama Engineering</a>, All Right Reserved.
+                    </div>
+                     <div class="col-md-6 text-center text-md-end">
+                       Designed By <a class="border-bottom" href="#">SCT</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top pt-2"><i class="bi bi-arrow-up"></i></a>
+	
+	<div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg modal-dialog-centered">
+			<div class="modal-content bg-transparent border-0">
+				<div class="modal-header border-0">
+					 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body p-0 text-center">
+					<img src="" class="img-fluid" id="modalImage" alt="Detail Proyek">
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <script src="js/main.js"></script>
+	
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+			var galleryModal = document.getElementById('galleryModal');
+			galleryModal.addEventListener('show.bs.modal', function (event) {
+				// Tombol/link yang memicu modal
+				var button = event.relatedTarget;
+				// Ambil path gambar dari atribut data-img-src
+				var imgSrc = button.getAttribute('data-img-src');
+				// Cari elemen gambar di dalam modal
+				var modalImage = galleryModal.querySelector('#modalImage');
+				// Set sumber gambar di modal
+				modalImage.src = imgSrc;
+			});
+		});
+	</script>
+</body>
+
+</html>
